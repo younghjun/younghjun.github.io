@@ -1,0 +1,19 @@
+{#- Three-up photo carousel. Usage in Markdown:
+    {{ gallery(start=1, photos=[
+        {src="img/a.jpg", alt="..."},
+        {src="img/b.jpg", alt="..."},
+    ]) }}
+  `start` is the zero-based index of the photo shown in the center on load. -#}
+<div class="gallery" data-start="{{ start | default(value=0) }}">
+    <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">&#8249;</button>
+    <div class="gallery-viewport">
+        <ul class="gallery-track">
+            {%- for p in photos %}
+            <li class="gallery-slide">
+                <img src="{{ get_url(path=p.src, cachebust=true) | safe }}" alt="{{ p.alt }}" loading="lazy" decoding="async" />
+            </li>
+            {%- endfor %}
+        </ul>
+    </div>
+    <button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">&#8250;</button>
+</div>

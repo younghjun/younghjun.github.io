@@ -1,0 +1,37 @@
+// Custom skin for ~/ryanjun: warm off-white paper with a deep teal accent.
+// Dark mode keeps the same teal family on a near-black background.
+
+@mixin theme-variables($theme) {
+    @if $theme == 'light' {
+        --background-color: #faf8f4;
+        --bg-0: #f3f0ea;
+        --bg-1: #e9e5dd;
+        --bg-2: #fffdf9;
+        --bg-3: #d9d3c8;
+        --hover-color: #ffffff;
+        --primary-color: #0f6e74;   // 5.9:1 on the background
+        --divider-color: #ddd7cc;
+        --text-color: #1f2328;
+        --text-color-high-contrast: #111417;
+        --meta-color: #5f6670;
+    }
+    @else if $theme == 'dark' {
+        --background-color: #0f1216;
+        --bg-0: #171b21;
+        --bg-1: #1f252d;
+        --bg-2: #0b0e11;
+        --bg-3: #2b323c;
+        --hover-color: #0f1216;
+        --primary-color: #5cc6c9;   // same teal, lifted for dark backgrounds, 9.6:1
+        --divider-color: #2b323c;
+        --text-color: #d9dde3;
+        --text-color-high-contrast: #f1f3f6;
+        --meta-color: #9aa3ae;
+    }
+}
+
+:root { @include theme-variables('light'); }
+[data-theme='dark'] { @include theme-variables('dark'); }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) { @include theme-variables('dark'); }
+}

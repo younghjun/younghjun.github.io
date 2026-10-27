@@ -1,0 +1,22 @@
+{#- Site override of tabi's home banner.
+    Splits the home page content at the gallery: everything before it sits beside the
+    photo in the banner, the gallery itself renders below the banner at full width. -#}
+{%- set header = section?.extra?.header -%}
+{%- set parts = section.content | split(pat='<div class="gallery"') -%}
+<div id="banner-container-home">
+    <div id="home-banner-text">
+        <h1 id="home-banner-header">{{ header.title }}</h1>
+        <section id="banner-home-subtitle">
+            {{ parts[0] | safe }}
+        </section>
+    </div>
+    {%- if header.img -%}
+        {%- set image_path = get_url(path=header.img, trailing_slash=false, cachebust=true) | safe -%}
+        <div id="image-container-home">
+            <img alt="{{ header.img_alt | default(value="the owner") }}" id="banner-home-img" src="{{ image_path }}" />
+        </div>
+    {%- endif -%}
+</div>
+{%- if parts | length > 1 %}
+<div class="gallery"{{ parts[1] | safe }}
+{%- endif %}

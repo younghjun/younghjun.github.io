@@ -1,0 +1,66 @@
+# Site configuration for Zola + tabi.
+# Docs for every [extra] option: https://welpo.github.io/tabi/blog/mastering-tabi-settings/
+
+# CHANGE THIS to match your GitHub username: https://<username>.github.io
+base_url = "https://younghjun.github.io"
+
+title = "Ryan Jun"
+description = "Young Hoo (Ryan) Jun — software engineer. Backend and infrastructure."
+author = "Young Hoo (Ryan) Jun"
+default_language = "en"
+
+theme = "tabi"
+compile_sass = true
+minify_html = true
+
+# No blog, so no feed and no search index.
+generate_feeds = false
+build_search_index = false
+
+taxonomies = [{ name = "tags" }]
+
+[markdown]
+smart_punctuation = true
+external_links_class = "external"
+
+[markdown.highlighting]
+theme = "catppuccin-frappe"
+style = "class"
+
+[extra]
+# Light/dark toggle in the header.
+theme_switcher = true
+# Custom palette, defined in sass/skins/ryan.scss.
+skin = "ryan"
+# Open in the light palette; the toggle in the header still switches to dark.
+default_theme = "light"
+
+# Header navigation, left to right.
+menu = [
+    { name = "About me", url = "about", trailing_slash = true },
+    { name = "Resume", url = "resume", trailing_slash = true },
+    { name = "Research &amp; Projects", url = "work", trailing_slash = true },
+]
+
+# Icons shown at the bottom of every page.
+# Icon names must exist in themes/tabi/static/social_icons/.
+socials = []
+
+feed_icon = false
+copyright = "© $CURRENT_YEAR $AUTHOR"
+
+# Keeps the site free of third-party JavaScript and tracking.
+allowed_domains = [
+    { directive = "font-src", domains = ["'self'", "data:"] },
+    { directive = "img-src", domains = ["'self'", "data:"] },
+    { directive = "script-src", domains = ["'self'"] },
+    { directive = "style-src", domains = ["'self'"] },
+    { directive = "frame-src", domains = ["'self'"] },
+    { directive = "object-src", domains = ["'self'"] },
+]
+
+stylesheets = ["css/gallery.css"]
+
+show_previous_next_article_links = false
+show_reading_time = false
+show_date = false
