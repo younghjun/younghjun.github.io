@@ -1,6 +1,7 @@
 {#- Three-up photo carousel. Usage in Markdown:
-    {{ gallery(start=1, photos=["img/a.jpg|Description of a", "img/b.jpg|Description of b"]) }}
+    {{< gallery start={1} photos={["img/a.jpg|Description of a", "img/b.jpg|Description of b"]} />}}
   Each entry is "path|alt text". `start` is the zero-based index of the photo centered on load. -#}
+{% component gallery(photos: array, start = 0) %}
 <div class="gallery" data-start="{{ start }}">
     <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">&#8249;</button>
     <div class="gallery-viewport">
@@ -15,3 +16,4 @@
     </div>
     <button class="gallery-arrow gallery-next" type="button" aria-label="Next photo">&#8250;</button>
 </div>
+{% endcomponent gallery %}
