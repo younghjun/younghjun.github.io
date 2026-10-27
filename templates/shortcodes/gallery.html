@@ -1,16 +1,14 @@
 {#- Three-up photo carousel. Usage in Markdown:
-    {{ gallery(start=1, photos=[
-        {src="img/a.jpg", alt="..."},
-        {src="img/b.jpg", alt="..."},
-    ]) }}
-  `start` is the zero-based index of the photo shown in the center on load. -#}
-<div class="gallery" data-start="{{ start | default(value=0) }}">
+    {{ gallery(start=1, photos=["img/a.jpg|Description of a", "img/b.jpg|Description of b"]) }}
+  Each entry is "path|alt text". `start` is the zero-based index of the photo centered on load. -#}
+<div class="gallery" data-start="{{ start }}">
     <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo">&#8249;</button>
     <div class="gallery-viewport">
         <ul class="gallery-track">
             {%- for p in photos %}
+            {%- set bits = p | split(pat="|") %}
             <li class="gallery-slide">
-                <img src="{{ get_url(path=p.src, cachebust=true) | safe }}" alt="{{ p.alt }}" loading="lazy" decoding="async" />
+                <img src="{{ get_url(path=bits[0]) }}" alt="{{ bits[1] }}" loading="lazy" decoding="async" />
             </li>
             {%- endfor %}
         </ul>

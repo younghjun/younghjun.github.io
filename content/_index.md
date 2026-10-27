@@ -11,9 +11,9 @@ I'm a software engineer focused on backend systems and infrastructure. At <a cla
 <p class="contact-line">San Jose, CA · <a href="tel:+19199498860">(919) 949-8860</a><br><a href="mailto:youngofficial0616@gmail.com">youngofficial0616@gmail.com</a> · <a href="https://www.linkedin.com/in/young-hoo-jun">linkedin.com/in/young-hoo-jun</a></p>
 
 {{ gallery(start=1, photos=[
-    {src="img/dog.jpg", alt="My girlfriend's dog, a white husky, in front of a Christmas tree"},
-    {src="img/graduation.jpg", alt="With my father at my Duke graduation"},
-    {src="img/datacenter.jpg", alt="Working on a rack in the Netflix network lab"},
-    {src="img/laptop.jpg", alt="My laptop, covered in Netflix stickers"},
-    {src="img/headshot.jpg", alt="Young Hoo (Ryan) Jun"}
+    "img/dog.jpg|My girlfriend's dog, a white husky, in front of a Christmas tree",
+    "img/graduation.jpg|With my father at my Duke graduation",
+    "img/datacenter.jpg|Working on a rack in the Netflix network lab",
+    "img/laptop.jpg|My laptop, covered in Netflix stickers",
+    "img/headshot.jpg|Young Hoo (Ryan) Jun"
 ]) }}
